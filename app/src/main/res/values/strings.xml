@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">MyMusicPlayer</string>
+    <string name="music_list_lbl">View Playlist</string>
+    <string name="play_random_lbl">Play Random Song</string>
+</resources>
