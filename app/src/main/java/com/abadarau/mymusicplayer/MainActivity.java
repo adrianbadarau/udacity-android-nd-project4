@@ -10,12 +10,15 @@ import com.abadarau.mymusicplayer.domain.models.Song;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
+    public static final HashMap<String, Object> SESSION = new HashMap<>();
+    public static final String SONGS_KEY = "songs";
     public static final String PASS_KEY = "chosenSong";
-    List<Song> songList;
+    private List<Song> songList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         songList = initSongs(15);
         Button playRandom = findViewById(R.id.nav_play_random_btn);
+        SESSION.put(SONGS_KEY,songList);
         playRandom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -31,11 +35,19 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(goTo);
             }
         });
+        Button songList = findViewById(R.id.nav_playlist_btn);
+        songList.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getBaseContext(), MusicListActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
 
     private List<Song> initSongs(int number) {
-        List<String> possibleImages = Arrays.asList("picture1.jpg", "picture2.jpg", "picture3.jpg");
+        List<String> possibleImages = Arrays.asList("picture1", "picture2", "picture3");
         List<String> possibleNames = Arrays.asList(
                 "Yearning Of Mercy",
                 "Give My Echo",
@@ -65,5 +77,9 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return songs;
+    }
+
+    public List<Song> getSongList() {
+        return songList;
     }
 }
