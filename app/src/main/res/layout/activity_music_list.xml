@@ -6,8 +6,24 @@
     android:layout_height="match_parent"
     tools:context="com.abadarau.mymusicplayer.MusicListActivity">
 
-    <ListView
-        android:id="@+id/lv_song_list"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/go_to_main_btn"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/back_lbl" />
+
+        <ListView
+            android:id="@+id/lv_song_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:layout_editor_absoluteY="48dp"></ListView>
+    </LinearLayout>
+
+
 </android.support.constraint.ConstraintLayout>
