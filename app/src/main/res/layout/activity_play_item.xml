@@ -12,11 +12,20 @@
         android:gravity="fill_vertical"
         android:orientation="vertical">
 
+        <Button
+            android:id="@+id/go_back_btn"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/back_lbl" />
+
         <ImageView
             android:id="@+id/img_album_art"
             android:layout_width="match_parent"
             android:layout_height="240dp"
             android:layout_weight="1"
+            android:contentDescription="@string/pic_description"
             android:scaleType="fitCenter"
             app:srcCompat="@drawable/picture1" />
 

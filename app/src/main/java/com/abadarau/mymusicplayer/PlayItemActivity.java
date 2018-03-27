@@ -1,7 +1,10 @@
 package com.abadarau.mymusicplayer;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -19,6 +22,14 @@ public class PlayItemActivity extends AppCompatActivity {
         addSongImage(song.getCoverImageName());
         addSongTitle(song.getTitle());
         addAlbum(song.getAlbum(), song.getReleaseYear());
+        Button goBackBtn = findViewById(R.id.go_back_btn);
+        goBackBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getBaseContext(), MusicListActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void addSongImage(String imageName){
